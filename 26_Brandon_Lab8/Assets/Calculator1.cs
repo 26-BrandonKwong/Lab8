@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +10,6 @@ public Toggle USD;
 public Toggle JPY;
 float value;
 public Text Convertedvalue;
-float valueamount;
-
 
 public void conversion()
 {
@@ -29,11 +26,24 @@ Convertedvalue.text = value.ToString() + " USD";
 
 if(JPY.GetComponent<Toggle>().isOn == true)
 {
-      value = SGDAmount * 110.5f;
+      value = SGDAmount * 82.78f;
 Convertedvalue.text = value.ToString() + " JPY";
 }
 
+if((USD.GetComponent<Toggle>().isOn == true) && (JPY.GetComponent<Toggle>().isOn == true))
+{
+Convertedvalue.text = "Enter a valid option";
 }
+
+
+}
+ public void clear()
+    {
+        txtAmount.text = "";
+        Convertedvalue.text = "";
+JPY.GetComponent<Toggle>().isOn = false;
+USD.GetComponent<Toggle>().isOn = false;
+    }
 }
 
 
